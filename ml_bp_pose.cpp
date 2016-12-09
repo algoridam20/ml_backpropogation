@@ -2,15 +2,15 @@
 using namespace std;
 
 #define I 960
-#define H 60
-#define O 20
+#define H 64
+#define O 4
 #define alpha 0.3
 #define eta 0.3
 #define iterations 10000
-#define training_set "train_face.txt"
-#define testing_set "test_face2.txt"
-#define feature_dict name_dict
-#define feature name
+#define training_set "train_pose.txt"
+#define testing_set "test_pose2.txt"
+#define feature_dict pose_dict
+#define feature dir
 
 double input[I] = {0};
 double wh[H][I] = {0};
@@ -40,6 +40,7 @@ double sigmoid(double x)
 
 void random_initialize()
 {
+	//srand (rand()*time(NULL) );
 	for(int i=0;i<H;i++)
 		for(int j=0;j<I;j++)
 			wh[i][j] = -1 + static_cast <double> (rand()) /( static_cast <double> (RAND_MAX/(2)));

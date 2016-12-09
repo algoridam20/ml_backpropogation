@@ -2,15 +2,15 @@
 using namespace std;
 
 #define I 960
-#define H 60
-#define O 20
+#define H 3
+#define O 2
 #define alpha 0.3
 #define eta 0.3
-#define iterations 10000
-#define training_set "train_face.txt"
-#define testing_set "test_face2.txt"
-#define feature_dict name_dict
-#define feature name
+#define iterations 50000
+#define training_set "train_sunglasses.txt"
+#define testing_set "test_sunglasses2.txt"
+#define feature_dict eyes_dict
+#define feature eyes
 
 double input[I] = {0};
 double wh[H][I] = {0};
@@ -28,7 +28,6 @@ double delwk2[O][H] = {0};
 string name_dict[]={"an2i","at33", "boland", "bpm", "ch4f", "cheyer", "choon", "danieln", "glickman", "karyadi", "kawamura", "kk49", "megak", "mitchell", "night", "phoebe", "saavik", "steffi", "sz24", "tammo"};
 string pose_dict[]={"straight", "up", "left", "right"};
 string eyes_dict[]={"open","sunglasses"};
-
 
 vector< vector < double > > target_vectors;
 vector< vector < double > > input_vectors;
@@ -189,6 +188,7 @@ void pgm_converter(string s,bool flag)
 		cout<<feature_dict[i];
 	return ;
 }
+
 bool prediction(bool flag)
 {
 	forward_prop();
@@ -211,6 +211,7 @@ bool prediction(bool flag)
 	else
 		return false;
 }
+
 int main()
 {
 	int x = 0,temp1 = 0,temp2 = 0,correct = 0;
